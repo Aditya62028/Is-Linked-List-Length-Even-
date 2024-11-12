@@ -1,0 +1,46 @@
+class Node {
+    int data;
+    Node next;
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+public class Main {
+    public static boolean isLengthEven(Node head) {
+        Node current = head;
+        int length = 0;
+        while (current != null) {
+            length++;
+            current = current.next;
+        }
+        return length % 2 == 0;
+    }
+    public static Node insert(Node head, int data) {
+        if (head == null) {
+            return new Node(data);
+        }
+        Node current = head;
+        while (current.next != null) {
+            current = current.next;
+        }
+        current.next = new Node(data);
+        return head;
+    }
+    public static void main(String[] args) {
+        Node head = null;
+        head = insert(head, 12);
+        head = insert(head, 52);
+        head = insert(head, 10);
+        head = insert(head, 47);
+        head = insert(head, 95);
+        head = insert(head, 0);
+        System.out.println(isLengthEven(head)); 
+        Node head2 = null;
+        head2 = insert(head2, 9);
+        head2 = insert(head2, 4);
+        head2 = insert(head2, 3);
+        
+        System.out.println(isLengthEven(head2));
+    }
+}
